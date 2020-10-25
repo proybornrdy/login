@@ -33,7 +33,7 @@ export default function Home() {
             {currentUser ? (
                 <div className="centerContent" > 
                     <h3>{currentUser.fName +" "+ currentUser.lName}</h3>                   
-                    <img className="imgResize" alt="profile" src={"https://loginmernstack.herokuapp.com"+currentUser.path}/>
+                    <img className="imgResize" alt="profile" src={"https://loginmernstack.herokuapp.com/"+currentUser.path}/>
                     <label>{currentUser.email}</label>  
                 </div>
             ):(
