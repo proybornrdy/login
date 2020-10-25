@@ -17,7 +17,7 @@ export default function Home() {
         }else{
             let token = localStorage.getItem("auth-token");
             Axios.get(
-                "/users/"+ userData.user.id,
+                "https://loginmernstack.herokuapp.com/users/"+ userData.user.id,
                 {headers: {"auth_header_token":token}}
                 )
                 .then((res)=>{
@@ -33,7 +33,7 @@ export default function Home() {
             {currentUser ? (
                 <div className="centerContent" > 
                     <h3>{currentUser.fName +" "+ currentUser.lName}</h3>                   
-                    <img className="imgResize" alt="profile" src={currentUser.path}/>
+                    <img className="imgResize" alt="profile" src={"https://loginmernstack.herokuapp.com"+currentUser.path}/>
                     <label>{currentUser.email}</label>  
                 </div>
             ):(

@@ -26,13 +26,13 @@ export default function App() {
                 token = "";
             }
             const tokenRes = await Axios.post(
-                "/users/tokenCheck",
+                "https://loginmernstack.herokuapp.com/users/tokenCheck",
                 null,
                 {headers:{"auth_header_token":token}}
             )
             if (tokenRes.data){
                 const userRes = await Axios.get(
-                    "/users/",
+                    "https://loginmernstack.herokuapp.com/users/",
                     {headers: {"auth_header_token":token}}
                 )
                 setUserData({

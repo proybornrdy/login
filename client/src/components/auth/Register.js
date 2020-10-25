@@ -24,7 +24,7 @@ export default function Register() {
         
         
         await Axios.post(
-            "/users/register", 
+            "https://loginmernstack.herokuapp.com/users/register", 
             newUser
         );
 
@@ -33,7 +33,7 @@ export default function Register() {
             fd.append("myImage",file, file.name)
             fd.append("email", email)
             await Axios.post(
-                "/users/upload",
+                "https://loginmernstack.herokuapp.com/users/upload",
                 fd
             )
         }

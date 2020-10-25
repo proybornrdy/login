@@ -23,7 +23,7 @@ export default function Login() {
         e.preventDefault();
         try{
             const loginRes = await Axios.post(
-                "/users/login",{
+                "https://loginmernstack.herokuapp.com/users/login",{
                     email,
                     password                
                 }
