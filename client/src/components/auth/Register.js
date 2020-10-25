@@ -24,7 +24,7 @@ export default function Register() {
         
         
         await Axios.post(
-            "http://localhost:5000/users/register", 
+            "/users/register", 
             newUser
         );
 
@@ -33,14 +33,14 @@ export default function Register() {
             fd.append("myImage",file, file.name)
             fd.append("email", email)
             await Axios.post(
-                "http://localhost:5000/users/upload",
+                "/users/upload",
                 fd
             )
         }
         
         
         const loginRes = await Axios.post(
-            "http://localhost:5000/users/login",{
+            "/users/login",{
                 email,
                 password
             }

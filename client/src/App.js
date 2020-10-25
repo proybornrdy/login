@@ -26,13 +26,13 @@ export default function App() {
                 token = "";
             }
             const tokenRes = await Axios.post(
-                "http://localhost:5000/users/tokenCheck",
+                "/users/tokenCheck",
                 null,
                 {headers:{"auth_header_token":token}}
             )
             if (tokenRes.data){
                 const userRes = await Axios.get(
-                    "http://localhost:5000/users/",
+                    "/users/",
                     {headers: {"auth_header_token":token}}
                 )
                 setUserData({

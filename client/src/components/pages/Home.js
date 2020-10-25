@@ -17,7 +17,7 @@ export default function Home() {
         }else{
             let token = localStorage.getItem("auth-token");
             Axios.get(
-                "http://localhost:5000/users/"+ userData.user.id,
+                "/users/"+ userData.user.id,
                 {headers: {"auth_header_token":token}}
                 )
                 .then((res)=>{
@@ -33,7 +33,7 @@ export default function Home() {
             {currentUser ? (
                 <div className="centerContent" > 
                     <h3>{currentUser.fName +" "+ currentUser.lName}</h3>                   
-                    <img className="imgResize" alt="profile" src={"http://localhost:5000/"+ currentUser.path}/>
+                    <img className="imgResize" alt="profile" src={currentUser.path}/>
                     <label>{currentUser.email}</label>  
                 </div>
             ):(
