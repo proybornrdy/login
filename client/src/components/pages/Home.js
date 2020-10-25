@@ -24,7 +24,7 @@ export default function Home() {
                     setCurrentUser(res.data)
                 }) 
         }          
-    })
+    },[])
 
 
     return (
