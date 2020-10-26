@@ -38,18 +38,19 @@ export default function Register() {
                     fd
                 )
             }
+            const loginRes = await Axios.post(
+                "/users/login",{
+                    email,
+                    password
+                }
+            )
         }catch(err){
             err.response.data.msg && setErr(err.response.data.msg)
         }
         
         
         
-        const loginRes = await Axios.post(
-            "/users/login",{
-                email,
-                password
-            }
-        )
+        
         
         setUserData({
             token: loginRes.data.token,
