@@ -38,18 +38,24 @@ export default function Register() {
                     fd
                 )
             }
+            
+            const loginRes = await Axios.post(
+                "/users/login",{
+                    email,
+                    password
+                }
+            )
+            
             setUserData({
                 token: loginRes.data.token,
                 user: loginRes.data.user
             })
             localStorage.setItem("auth-token", loginRes.data.token);
             history.push("/")
-            
+
         }catch(err){
             err.response.data.msg && setErr(err.response.data.msg)
         }
-        
-        
         
         
         
