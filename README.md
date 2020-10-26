@@ -10,7 +10,7 @@ Consist of 3 pages:
       Password needs to be at least 8 letter, including 1 uppercase, 1 lowercase, 1 number and 1 special character.
     * Image is stored in fs using *Multer*
 3. Profile
-    *Displays a Name of User, a picture used when registered, and an email address of an user
+    * Displays a Name of User, a picture used when registered, and an email address of an user
   
 React frontend communicate with backend using *Axios*
 
