@@ -10,6 +10,7 @@ export default function Register() {
     const [firstName, setfirstName] = useState();
     const [lastName, setlastName] = useState();
     const [file, setFile] = useState();
+    const [errorMessage, setErr] = useState();
 
     const {userData, setUserData} = useContext(userContext);
     const history  = useHistory();
@@ -22,21 +23,25 @@ export default function Register() {
         e.preventDefault();
         const newUser = {email, password,firstName, lastName};   
         
-        
-        await Axios.post(
-            "https://loginmernstack.herokuapp.com/users/register", 
-            newUser
-        );
-
-        if (file){
-            const fd = new FormData();
-            fd.append("myImage",file, file.name)
-            fd.append("email", email)
+        try{
             await Axios.post(
-                "https://loginmernstack.herokuapp.com/users/upload",
-                fd
-            )
+                "https://loginmernstack.herokuapp.com/users/register", 
+                newUser
+            );
+    
+            if (file){
+                const fd = new FormData();
+                fd.append("myImage",file, file.name)
+                fd.append("email", email)
+                await Axios.post(
+                    "https://loginmernstack.herokuapp.com/users/upload",
+                    fd
+                )
+            }
+        }catch(err){
+            err.response.data.msg && setErr(err.response.data.msg)
         }
+        
         
         
         const loginRes = await Axios.post(
@@ -75,7 +80,7 @@ export default function Register() {
                     
                     <input type = "file" name ="myImage" onChange={(e) => setFile(e.target.files[0])}/>
 
-                    
+                    {errorMessage && <label className="errorMsg">{errorMessage}</label>}
 
                     <input type="submit" value="Register"/>
 
