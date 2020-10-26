@@ -24,11 +24,12 @@ export default function Register() {
         const newUser = {email, password,firstName, lastName};   
         
         try{
-            await Axios.post(
+            const registerRes = await Axios.post(
                 "https://loginmernstack.herokuapp.com/users/register", 
                 newUser
-            );
-    
+                );
+            console.log(registerRes)
+                
             if (file){
                 const fd = new FormData();
                 fd.append("myImage",file, file.name)
